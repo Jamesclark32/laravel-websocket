@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\Skeleton\Commands;
+namespace Jamesclark32\LaravelWebsocket\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelWebsocketCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-websocket';
 
     public $description = 'My command';
 
