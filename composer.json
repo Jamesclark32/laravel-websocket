@@ -52,7 +52,7 @@
             ],
             "aliases": {
                 "WebsocketMessenger": "JamesClark32\\LaravelWebsocket\\LaravelWebsocketMessengerFacade",
-                "WebsocketRoute": "JamesClark32\\LaravelWebsocket\\LaravelWebsocketRouteFacade"
+                "WebsocketRoute": "JamesClark32\\LaravelWebsocket\\LaravelWebsocketRouteManagerFacade"
             }
         }
     },

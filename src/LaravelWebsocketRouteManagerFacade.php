@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \JamesClark32\LaravelWebsocket\LaravelWebsocket
  */
-class LaravelWebsocketRouteFacade extends Facade
+class LaravelWebsocketRouteManagerFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'websocket-route-manager';
+        return 'websocket-route';
     }
 }
