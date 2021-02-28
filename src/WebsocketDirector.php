@@ -107,6 +107,7 @@ class WebsocketDirector extends WebsocketDirectorBase
         $sessionId = $this->getCookieValueFromConnectionInterface($conn, Session::getName());
         $session = $this->buildSession($sessionId);
         $userId = $session->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+
         return $userId;//@TODO: Why is this the keyname?!
     }
 
@@ -118,12 +119,13 @@ class WebsocketDirector extends WebsocketDirectorBase
             $cookiesArr = Header::parse($cookiesRaw)[0]; // Array of cookies
 
             $data = $cookiesArr[$name];
-            if (!$data) {
+            if (! $data) {
                 return null;
             }
             $data = substr($data, 0, -3);//strip trailing %3D TODO do this more cleanly
             $value = $this->encryptor->decryptString($data);
             $pieces = explode('|', $value);//@TODO: Why? And handle this more
+
             return $pieces[1];
         }
     }

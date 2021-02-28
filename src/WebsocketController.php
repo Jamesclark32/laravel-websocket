@@ -22,6 +22,7 @@ class WebsocketController
     public function setWebsocketRequest(WebsocketRequest $websocketRequest): WebsocketController
     {
         $this->websocketRequest = $websocketRequest;
+
         return $this;
-}
+    }
 }
