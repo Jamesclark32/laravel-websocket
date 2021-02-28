@@ -168,6 +168,6 @@ class WebsocketDirector extends WebsocketDirectorBase
             return $objectProperties['resourceId'];
         }
 
-        return count($this->clients);
+        return count($this->connections);
     }
 }
