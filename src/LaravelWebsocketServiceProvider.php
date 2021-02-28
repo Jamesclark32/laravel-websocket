@@ -2,22 +2,26 @@
 
 namespace JamesClark32\LaravelWebsocket;
 
+use Illuminate\Support\ServiceProvider;
 use JamesClark32\LaravelWebsocket\Commands\LaravelWebsocketServeCommand;
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class LaravelWebsocketServiceProvider extends PackageServiceProvider
+class LaravelWebsocketServiceProvider extends ServiceProvider
 {
-    public function configurePackage(Package $package): void
+    /**
+     * Bootstrap any package services.
+     *
+     * @return void
+     */
+    public function boot()
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
-        $package
-            ->name('laravel-websocket')
-            ->hasCommand(LaravelWebsocketServeCommand::class)
-        ->hasRoute('websocket');
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                LaravelWebsocketServeCommand::class,
+            ]);
+        }
+
+        $this->publishes([
+            __DIR__.'/../routes/websocket.php' => base_path('routes/'),
+        ]);
     }
 }
