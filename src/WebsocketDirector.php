@@ -8,7 +8,7 @@ use Illuminate\Encryption\Encrypter;
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Session;
 use Jamesclark32\LaravelWebsocket\WebsocketRouteResolvers\WebsocketRouteResolver;
-use Jamesclark32\Websocket\WebsocketDirectorBase;
+use JamesClark32\Websocket\WebsocketDirectorBase;
 use Ratchet\ConnectionInterface;
 use Ratchet\RFC6455\Messaging\MessageInterface;
 
