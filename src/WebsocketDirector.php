@@ -19,6 +19,18 @@ class WebsocketDirector extends WebsocketDirectorBase
     protected ?WebsocketRouteResolver $websocketRouteResolver;
     protected ?WebsocketRoutesCollection $websocketRoutesCollection;
 
+    public function __construct(?Encrypter $encryptor = null)
+    {
+        if (!$encryptor) {
+            $encryptor = app(Encrypter::class);
+        }
+
+        $this->encryptor = $encryptor;
+
+        $this->websocketRouteResolver = new WebsocketRouteResolver();
+        $this->fetchWebsocketRoutes();
+    }
+
     public function onOpen(ConnectionInterface $conn)
     {
         $userId = $this->fetchUserIdFromSession($conn);
@@ -119,7 +131,7 @@ class WebsocketDirector extends WebsocketDirectorBase
             $cookiesArr = Header::parse($cookiesRaw)[0]; // Array of cookies
 
             $data = $cookiesArr[$name];
-            if (! $data) {
+            if (!$data) {
                 return null;
             }
             $data = substr($data, 0, -3);//strip trailing %3D TODO do this more cleanly
