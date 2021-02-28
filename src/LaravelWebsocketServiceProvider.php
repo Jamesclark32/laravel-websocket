@@ -25,11 +25,11 @@ class LaravelWebsocketServiceProvider extends ServiceProvider
             __DIR__.'/../routes/websocket.php' => base_path('routes/websocket.php'),
         ]);
 
-        $this->app->bind('websocket-messenger', function($app) {
+        $this->app->bind('websocket-messenger', function ($app) {
             return new WebsocketMessenger();
         });
 
-        $this->app->singleton('websocket-route', function($app) {
+        $this->app->singleton('websocket-route', function ($app) {
             return new WebsocketRouteManager();
         });
     }
