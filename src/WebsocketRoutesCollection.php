@@ -1,6 +1,6 @@
 <?php
 
-namespace JamesClark32\LaravelWebsocket;
+namespace Jamesclark32\LaravelWebsocket;
 
 use Illuminate\Support\Collection;
 

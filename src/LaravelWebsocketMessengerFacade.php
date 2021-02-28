@@ -1,11 +1,11 @@
 <?php
 
-namespace JamesClark32\LaravelWebsocket;
+namespace Jamesclark32\LaravelWebsocket;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \JamesClark32\LaravelWebsocket\LaravelWebsocket
+ * @see \Jamesclark32\LaravelWebsocket\LaravelWebsocket
  */
 class LaravelWebsocketMessengerFacade extends Facade
 {

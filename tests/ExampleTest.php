@@ -1,6 +1,6 @@
 <?php
 
-namespace JamesClark32\LaravelWebsocket\Tests;
+namespace Jamesclark32\LaravelWebsocket\Tests;
 
 class ExampleTest extends TestCase
 {

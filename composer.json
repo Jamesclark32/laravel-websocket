@@ -29,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "JamesClark32\\LaravelWebsocket\\": "src"
+            "Jamesclark32\\LaravelWebsocket\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JamesClark32\\LaravelWebsocket\\Tests\\": "tests"
+            "Jamesclark32\\LaravelWebsocket\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -48,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "JamesClark32\\LaravelWebsocket\\LaravelWebsocketServiceProvider"
+                "Jamesclark32\\LaravelWebsocket\\LaravelWebsocketServiceProvider"
             ],
             "aliases": {
-                "WebsocketMessenger": "JamesClark32\\LaravelWebsocket\\LaravelWebsocketMessengerFacade"
+                "WebsocketMessenger": "Jamesclark32\\LaravelWebsocket\\LaravelWebsocketMessengerFacade"
             }
         }
     },

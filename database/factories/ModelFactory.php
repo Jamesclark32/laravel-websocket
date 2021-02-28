@@ -1,6 +1,6 @@
 <?php
 
-namespace JamesClark32\LaravelWebsocket\Database\Factories;
+namespace Jamesclark32\LaravelWebsocket\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
