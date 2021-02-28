@@ -29,13 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Jamesclark32\\LaravelWebsocket\\": "src",
-            "Jamesclark32\\LaravelWebsocket\\Database\\Factories\\": "database/factories"
+            "JamesClark32\\LaravelWebsocket\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Jamesclark32\\LaravelWebsocket\\Tests\\": "tests"
+            "JamesClark32\\LaravelWebsocket\\Tests\\": "tests"
         }
     },
     "scripts": {
