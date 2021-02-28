@@ -2,9 +2,9 @@
 
 namespace Jamesclark32\LaravelWebsocket;
 
+use Jamesclark32\LaravelWebsocket\Commands\LaravelWebsocketCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Jamesclark32\LaravelWebsocket\Commands\LaravelWebsocketCommand;
 
 class LaravelWebsocketServiceProvider extends PackageServiceProvider
 {
