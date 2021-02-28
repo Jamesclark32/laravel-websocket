@@ -3,8 +3,8 @@
 namespace Jamesclark32\LaravelWebsocket\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Jamesclark32\LaravelWebsocket\LaravelWebsocketServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
