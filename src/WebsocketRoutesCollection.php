@@ -35,6 +35,7 @@ class WebsocketRoutesCollection
         } else {
             $this->websocketRoutes = collect([]);
         }
+
         return $this->websocketRoutes;
     }
 
