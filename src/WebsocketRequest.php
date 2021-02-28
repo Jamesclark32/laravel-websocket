@@ -1,6 +1,6 @@
 <?php
 
-namespace Jamesclark32\LaravelWebsocket;
+namespace JamesClark32\LaravelWebsocket;
 
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Collection;

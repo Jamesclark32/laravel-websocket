@@ -1,9 +1,9 @@
 <?php
 
-namespace Jamesclark32\LaravelWebsocket\WebsocketRouteResolvers;
+namespace JamesClark32\LaravelWebsocket\WebsocketRouteResolvers;
 
-use Jamesclark32\LaravelWebsocket\WebsocketRequest;
-use Jamesclark32\LaravelWebsocket\WebsocketRoute;
+use JamesClark32\LaravelWebsocket\WebsocketRequest;
+use JamesClark32\LaravelWebsocket\WebsocketRoute;
 
 /**
  * Interface for a route resolver.
@@ -14,7 +14,7 @@ use Jamesclark32\LaravelWebsocket\WebsocketRoute;
  *
  * Interface WebsocketRouteResolverInterface
  *
- * @package Jamesclark32\LaravelWebsocket\WebsocketRouteResolvers
+ * @package JamesClark32\LaravelWebsocket\WebsocketRouteResolvers
  */
 interface WebsocketRouteResolverInterface
 {

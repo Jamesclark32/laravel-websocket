@@ -1,9 +1,9 @@
 <?php
 
-namespace Jamesclark32\LaravelWebsocket\Commands;
+namespace JamesClark32\LaravelWebsocket\Commands;
 
 use Illuminate\Console\Command;
-use Jamesclark32\LaravelWebsocket\WebsocketDirector;
+use JamesClark32\LaravelWebsocket\WebsocketDirector;
 use JamesClark32\Websocket\WebsocketServer;
 
 class LaravelWebsocketServeCommand extends Command

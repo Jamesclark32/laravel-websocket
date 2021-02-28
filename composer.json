@@ -48,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Jamesclark32\\LaravelWebsocket\\LaravelWebsocketServiceProvider"
+                "JamesClark32\\LaravelWebsocket\\LaravelWebsocketServiceProvider"
             ],
             "aliases": {
-                "WebsocketMessenger": "Jamesclark32\\LaravelWebsocket\\LaravelWebsocketMessengerFacade"
+                "WebsocketMessenger": "JamesClark32\\LaravelWebsocket\\LaravelWebsocketMessengerFacade"
             }
         }
     },
