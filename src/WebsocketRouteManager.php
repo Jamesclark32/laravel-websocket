@@ -8,6 +8,11 @@ class WebsocketRouteManager
 {
     protected Collection $websocketRoutes;
 
+    public function __construct()
+    {
+        $this->websocketRoutes = collect([]);
+    }
+
     /**
      * @return Collection
      */
