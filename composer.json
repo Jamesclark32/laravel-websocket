@@ -16,8 +16,10 @@
     ],
     "require": {
         "php": "^8.0",
-        "spatie/laravel-package-tools": "^1.1",
-        "illuminate/contracts": "^8.0"
+        "illuminate/auth": "^8.29",
+        "illuminate/contracts": "^8.0",
+        "jamesclark32/websocket": "dev-main",
+        "spatie/laravel-package-tools": "^1.1"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
@@ -50,7 +52,7 @@
                 "Jamesclark32\\LaravelWebsocket\\LaravelWebsocketServiceProvider"
             ],
             "aliases": {
-                "LaravelWebsocket": "Jamesclark32\\LaravelWebsocket\\LaravelWebsocketFacade"
+                "WebsocketMessenger": "Jamesclark32\\LaravelWebsocket\\LaravelWebsocketMessengerFacade"
             }
         }
     },

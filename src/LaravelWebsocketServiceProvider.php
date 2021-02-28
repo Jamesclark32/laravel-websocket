@@ -2,7 +2,7 @@
 
 namespace Jamesclark32\LaravelWebsocket;
 
-use Jamesclark32\LaravelWebsocket\Commands\LaravelWebsocketCommand;
+use Jamesclark32\LaravelWebsocket\Commands\LaravelWebsocketServeCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -17,9 +17,6 @@ class LaravelWebsocketServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-websocket')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel_websocket_table')
-            ->hasCommand(LaravelWebsocketCommand::class);
+            ->hasCommand(LaravelWebsocketServeCommand::class);
     }
 }

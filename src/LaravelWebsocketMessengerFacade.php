@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \Jamesclark32\LaravelWebsocket\LaravelWebsocket
  */
-class LaravelWebsocketFacade extends Facade
+class LaravelWebsocketMessengerFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'laravel-websocket';
+        return 'websocket-messanger';
     }
 }
