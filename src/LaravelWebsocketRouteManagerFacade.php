@@ -11,6 +11,6 @@ class LaravelWebsocketRouteManagerFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'websocket-route';
+        return 'websocket-route-manager';
     }
 }
