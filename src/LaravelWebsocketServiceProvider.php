@@ -17,6 +17,7 @@ class LaravelWebsocketServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-websocket')
-            ->hasCommand(LaravelWebsocketServeCommand::class);
+            ->hasCommand(LaravelWebsocketServeCommand::class)
+        ->hasRoute('websocket');
     }
 }
