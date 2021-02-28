@@ -33,6 +33,7 @@ class WebsocketRoutesCollection
             $this->websocketRoutes = collect(include($path));
             $this->transformWebsocketRoutes();
         }
+
         return $this->websocketRoutes;
     }
 
