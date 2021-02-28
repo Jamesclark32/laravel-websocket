@@ -1,13 +1,13 @@
 <?php
 
-namespace Jamesclark32\LaravelWebsocket;
+namespace JamesClark32\LaravelWebsocket;
 
 use GuzzleHttp\Psr7\Header;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Session;
-use Jamesclark32\LaravelWebsocket\WebsocketRouteResolvers\WebsocketRouteResolver;
+use JamesClark32\LaravelWebsocket\WebsocketRouteResolvers\WebsocketRouteResolver;
 use JamesClark32\Websocket\WebsocketDirectorBase;
 use Ratchet\ConnectionInterface;
 use Ratchet\RFC6455\Messaging\MessageInterface;

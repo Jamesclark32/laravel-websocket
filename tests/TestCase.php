@@ -1,9 +1,9 @@
 <?php
 
-namespace Jamesclark32\LaravelWebsocket\Tests;
+namespace JamesClark32\LaravelWebsocket\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Jamesclark32\LaravelWebsocket\LaravelWebsocketServiceProvider;
+use JamesClark32\LaravelWebsocket\LaravelWebsocketServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -13,7 +13,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Jamesclark32\\LaravelWebsocket\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'JamesClark32\\LaravelWebsocket\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 

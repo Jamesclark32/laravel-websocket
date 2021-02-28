@@ -2,7 +2,7 @@
     "name": "jamesclark32/laravel-websocket",
     "description": "A Laravel websocket library focused on easy-to-access bidirectional messaging",
     "keywords": [
-        "jamesclark32",
+        "JamesClark32",
         "laravel-websocket"
     ],
     "homepage": "https://github.com/jamesclark32/laravel-websocket",
@@ -29,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Jamesclark32\\LaravelWebsocket\\": "src"
+            "JamesClark32\\LaravelWebsocket\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Jamesclark32\\LaravelWebsocket\\Tests\\": "tests"
+            "JamesClark32\\LaravelWebsocket\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -48,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Jamesclark32\\LaravelWebsocket\\LaravelWebsocketServiceProvider"
+                "JamesClark32\\LaravelWebsocket\\LaravelWebsocketServiceProvider"
             ],
             "aliases": {
-                "WebsocketMessenger": "Jamesclark32\\LaravelWebsocket\\LaravelWebsocketMessengerFacade"
+                "WebsocketMessenger": "JamesClark32\\LaravelWebsocket\\LaravelWebsocketMessengerFacade"
             }
         }
     },

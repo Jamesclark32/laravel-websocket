@@ -1,8 +1,8 @@
 <?php
 
-namespace Jamesclark32\LaravelWebsocket;
+namespace JamesClark32\LaravelWebsocket;
 
-use Jamesclark32\LaravelWebsocket\Commands\LaravelWebsocketServeCommand;
+use JamesClark32\LaravelWebsocket\Commands\LaravelWebsocketServeCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

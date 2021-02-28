@@ -1,6 +1,6 @@
 <?php
 
-namespace Jamesclark32\LaravelWebsocket;
+namespace JamesClark32\LaravelWebsocket;
 
 class WebsocketRouteFactory
 {
