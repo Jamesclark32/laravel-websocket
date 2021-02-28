@@ -29,9 +29,10 @@ class WebsocketRoutesCollection
     public function loadWebsocketRoutes(): Collection
     {
         $path = base_path('routes/websocket.php');
-        $this->websocketRoutes = collect(include($path));
-        $this->transformWebsocketRoutes();
-
+        if (file_exists($path)) {
+            $this->websocketRoutes = collect(include($path));
+            $this->transformWebsocketRoutes();
+        }
         return $this->websocketRoutes;
     }
 
