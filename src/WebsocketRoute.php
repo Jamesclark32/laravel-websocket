@@ -19,6 +19,7 @@ class WebsocketRoute
     public function setClass(?string $class): WebsocketRoute
     {
         $this->class = $class;
+
         return $this;
     }
 
@@ -30,6 +31,7 @@ class WebsocketRoute
     public function setKey(?string $key): WebsocketRoute
     {
         $this->key = $key;
+
         return $this;
     }
 
@@ -41,6 +43,7 @@ class WebsocketRoute
     public function setMethod(?string $method): WebsocketRoute
     {
         $this->method = $method;
+
         return $this;
     }
 
@@ -52,6 +55,7 @@ class WebsocketRoute
     public function setRoute(?string $route): WebsocketRoute
     {
         $this->route = $route;
+
         return $this;
     }
 
@@ -63,6 +67,7 @@ class WebsocketRoute
     public function setDefinition(array $definition): WebsocketRoute
     {
         $this->definition = $definition;
+
         return $this;
     }
 
@@ -122,6 +127,7 @@ class WebsocketRoute
     public function setClosure(?\Closure $closure): WebsocketRoute
     {
         $this->closure = $closure;
+
         return $this;
     }
 
@@ -140,5 +146,4 @@ class WebsocketRoute
     {
         return $this->getClass() !== null && $this->getMethod() !== null;
     }
-
 }

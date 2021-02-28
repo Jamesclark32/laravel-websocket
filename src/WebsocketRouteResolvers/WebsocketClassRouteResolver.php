@@ -18,6 +18,7 @@ class WebsocketClassRouteResolver implements WebsocketRouteResolverInterface
         }
 
         $method = $route->getMethod();
+
         return $instance->$method();
     }
 }

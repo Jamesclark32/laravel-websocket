@@ -18,7 +18,7 @@ class WebsocketRequest
      */
     public function getUser(): User
     {
-        if (!$this->user && $this->userId) {
+        if (! $this->user && $this->userId) {
             $this->user = User::findOrFail($this->userId);
         }
 
@@ -33,6 +33,7 @@ class WebsocketRequest
     public function setUser(User $user): self
     {
         $this->user = $user;
+
         return $this;
     }
 
@@ -52,6 +53,7 @@ class WebsocketRequest
     public function setBody(Collection $body): self
     {
         $this->body = $body;
+
         return $this;
     }
 
@@ -73,6 +75,7 @@ class WebsocketRequest
     public function setUserId(int $userId): self
     {
         $this->userId = $userId;
+
         return $this;
     }
 
@@ -92,8 +95,9 @@ class WebsocketRequest
     public function setRoute(string $route): self
     {
         $this->route = $route;
+
         return $this;
-}
+    }
 
     /**
      * @return Collection
@@ -111,6 +115,7 @@ class WebsocketRequest
     public function setHeaders(Collection $headers): self
     {
         $this->headers = $headers;
+
         return $this;
-}
+    }
 }
