@@ -11,6 +11,6 @@ class LaravelWebsocketMessengerFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'websocket-messanger';
+        return 'websocket-messenger';
     }
 }

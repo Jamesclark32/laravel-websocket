@@ -4,6 +4,7 @@ namespace JamesClark32\LaravelWebsocket;
 
 use Illuminate\Support\ServiceProvider;
 use JamesClark32\LaravelWebsocket\Commands\LaravelWebsocketServeCommand;
+use JamesClark32\Websocket\WebsocketMessenger;
 
 class LaravelWebsocketServiceProvider extends ServiceProvider
 {
@@ -21,7 +22,15 @@ class LaravelWebsocketServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__.'/../routes/websocket.php' => base_path('routes/'),
+            __DIR__.'/../routes/websocket.php' => base_path('routes/websocket.php'),
         ]);
+
+        $this->app->bind('websocket-messenger', function($app) {
+            return new WebsocketMessenger();
+        });
+
+        $this->app->singleton('websocket-route', function($app) {
+            return new WebsocketRouteManager();
+        });
     }
 }

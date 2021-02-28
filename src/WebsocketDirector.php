@@ -17,18 +17,18 @@ class WebsocketDirector extends WebsocketDirectorBase
     protected array $connections = [];
     protected ?Encrypter $encryptor;
     protected ?WebsocketRouteResolver $websocketRouteResolver;
-    protected ?WebsocketRoutesCollection $websocketRoutesCollection;
+    protected ?WebsocketRouteManager $websocketRoutesManager;
 
     public function __construct(?Encrypter $encryptor = null)
     {
-        if (! $encryptor) {
+        if (!$encryptor) {
             $encryptor = app(Encrypter::class);
         }
 
         $this->encryptor = $encryptor;
 
         $this->websocketRouteResolver = new WebsocketRouteResolver();
-        $this->fetchWebsocketRoutes();
+        $this->websocketRoutesManager = new WebsocketRouteManager();
     }
 
     public function onOpen(ConnectionInterface $conn)
@@ -70,7 +70,7 @@ class WebsocketDirector extends WebsocketDirectorBase
         $websocketRequest->setRoute($messageBody->route);
         $websocketRequest->setHeaders(collect($conn->httpRequest->getHeaders()));
 
-        $route = $this->websocketRoutesCollection->get($websocketRequest->getRoute());
+        $route = $this->websocketRoutesManager->get($websocketRequest->getRoute());
 
         $this->websocketRouteResolver->resolve($route, $websocketRequest);
     }
@@ -107,13 +107,6 @@ class WebsocketDirector extends WebsocketDirectorBase
         }
     }
 
-    protected function fetchWebsocketRoutes()
-    {
-        $websocketRouteFactory = new WebsocketRouteFactory();
-        $this->websocketRoutesCollection = new WebsocketRoutesCollection($websocketRouteFactory);
-        $this->websocketRoutesCollection->loadWebsocketRoutes();
-    }
-
     protected function fetchUserIdFromSession(ConnectionInterface $conn)
     {
         $sessionId = $this->getCookieValueFromConnectionInterface($conn, Session::getName());
@@ -131,7 +124,7 @@ class WebsocketDirector extends WebsocketDirectorBase
             $cookiesArr = Header::parse($cookiesRaw)[0]; // Array of cookies
 
             $data = $cookiesArr[$name];
-            if (! $data) {
+            if (!$data) {
                 return null;
             }
             $data = substr($data, 0, -3);//strip trailing %3D TODO do this more cleanly
