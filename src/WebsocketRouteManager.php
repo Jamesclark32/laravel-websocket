@@ -11,6 +11,10 @@ class WebsocketRouteManager
     public function __construct()
     {
         $this->websocketRoutes = collect([]);
+        $routeFilePath = base_path('routes/websocket.php');
+        if (file_exists($routeFilePath)) {
+            include($routeFilePath);
+        }
     }
 
     /**
