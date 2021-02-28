@@ -21,7 +21,7 @@ class WebsocketDirector extends WebsocketDirectorBase
 
     public function __construct(?Encrypter $encryptor = null)
     {
-        if (!$encryptor) {
+        if (! $encryptor) {
             $encryptor = app(Encrypter::class);
         }
 
@@ -124,7 +124,7 @@ class WebsocketDirector extends WebsocketDirectorBase
             $cookiesArr = Header::parse($cookiesRaw)[0]; // Array of cookies
 
             $data = $cookiesArr[$name];
-            if (!$data) {
+            if (! $data) {
                 return null;
             }
             $data = substr($data, 0, -3);//strip trailing %3D TODO do this more cleanly
