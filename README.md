@@ -6,15 +6,10 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/jamesclark32/laravel-websocket.svg?style=flat-square)](https://packagist.org/packages/jamesclark32/laravel-websocket)
 
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This package aims to make highly interactive websocket applications easier to develop by facilitating high traffic
+be-directional traffic amongst many users.
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/package-laravel-websocket-laravel.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/package-laravel-websocket-laravel)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+This package is a work in progress and is not yet stable.
 
 ## Installation
 
@@ -24,31 +19,9 @@ You can install the package via composer:
 composer require jamesclark32/laravel-websocket
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --provider="Jamesclark32\LaravelWebsocket\LaravelWebsocketServiceProvider" --tag="laravel-websocket-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-```bash
-php artisan vendor:publish --provider="Jamesclark32\LaravelWebsocket\LaravelWebsocketServiceProvider" --tag="laravel-websocket-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
 ## Usage
 
-```php
-$laravel-websocket = new Jamesclark32\LaravelWebsocket();
-echo $laravel-websocket->echoPhrase('Hello, Jamesclark32!');
-```
+coming soon
 
 ## Testing
 
@@ -71,7 +44,6 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [James Clark](https://github.com/jamesclark32)
-- [All Contributors](../../contributors)
 
 ## License
 
