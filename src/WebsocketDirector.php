@@ -15,9 +15,9 @@ use Ratchet\RFC6455\Messaging\MessageInterface;
 class WebsocketDirector extends WebsocketDirectorBase
 {
     protected array $connections = [];
-    protected Encrypter $encryptor;
-    protected WebsocketRouteResolver $websocketRouteResolver;
-    protected WebsocketRoutesCollection $websocketRoutesCollection;
+    protected ?Encrypter $encryptor;
+    protected ?WebsocketRouteResolver $websocketRouteResolver;
+    protected ?WebsocketRoutesCollection $websocketRoutesCollection;
 
     public function onOpen(ConnectionInterface $conn)
     {
