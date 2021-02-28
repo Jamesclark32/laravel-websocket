@@ -32,6 +32,8 @@ class WebsocketRoutesCollection
         if (file_exists($path)) {
             $this->websocketRoutes = collect(include($path));
             $this->transformWebsocketRoutes();
+        } else {
+            $this->websocketRoutes = collect([]);
         }
         return $this->websocketRoutes;
     }
