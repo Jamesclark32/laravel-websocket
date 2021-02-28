@@ -120,7 +120,7 @@ class WebsocketDirector extends WebsocketDirectorBase
         $session = $this->buildSession($sessionId);
         $userId = $session->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
 
-        return $userId;//@TODO: Why is this the keyname?!
+        return $userId;
     }
 
     protected function getCookieValueFromConnectionInterface(ConnectionInterface $connection, string $name): ?string
@@ -162,12 +162,15 @@ class WebsocketDirector extends WebsocketDirectorBase
      */
     protected function fetchResourceIdFromConnection(ConnectionInterface $connection)
     {
-        if (property_exists($connection, 'resourceId')) {
-            $objectProperties = get_object_vars($connection);
+        return $connection->resourceId;
 
-            return $objectProperties['resourceId'];
-        }
-
-        return count($this->connections);
+        //@TODO: this doesn't seem to work. The above must use some magic methods to resolve.
+//        if (property_exists($connection, 'resourceId')) {
+//            $objectProperties = get_object_vars($connection);
+//
+//            return $objectProperties['resourceId'];
+//        }
+//
+//        return count($this->connections);
     }
 }
