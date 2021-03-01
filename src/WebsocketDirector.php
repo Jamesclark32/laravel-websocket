@@ -71,6 +71,9 @@ class WebsocketDirector extends WebsocketDirectorBase
         $websocketRequest->setHeaders(collect($conn->httpRequest->getHeaders()));
 
         $route = $this->websocketRoutesManager->get($websocketRequest->getRoute());
+        if (!$route) {
+            $this->sendToUser($this->connections[$resourceId]['user_id'], 'Route not found '.$messageBody->route);
+        }
 
         $this->websocketRouteResolver->resolve($route, $websocketRequest);
     }
