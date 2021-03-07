@@ -8,6 +8,19 @@ use JamesClark32\Websocket\WebsocketMessenger;
 
 class LaravelWebsocketServiceProvider extends ServiceProvider
 {
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/laravel-websocket.php', 'laravel-websocket',
+        );
+    }
+
     /**
      * Bootstrap any package services.
      *
@@ -23,6 +36,7 @@ class LaravelWebsocketServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../routes/websocket.php' => base_path('routes/websocket.php'),
+            __DIR__.'/../config/laravel-websocket.php' => config_path('laravel-websocket.php'),
         ]);
 
         $this->app->bind('websocket-messenger', function ($app) {
