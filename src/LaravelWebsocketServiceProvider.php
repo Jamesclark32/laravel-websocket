@@ -29,8 +29,9 @@ class LaravelWebsocketServiceProvider extends ServiceProvider
             return new WebsocketMessenger();
         });
 
-        $this->app->singleton('websocket-route-manager', function ($app) {
-            return new WebsocketRouteManager();
+
+        $this->app->singleton('websocket-route-collection', function ($app) {
+            return new WebsocketRoutesCollection();
         });
     }
 }

@@ -11,6 +11,6 @@ class WebsocketClosureRouteResolver implements WebsocketRouteResolverInterface
     {
         $closure = $route->getClosure();
 
-        return $closure();
+        return $closure($websocketRequest);
     }
 }

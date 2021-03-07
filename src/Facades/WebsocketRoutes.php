@@ -1,16 +1,16 @@
 <?php
 
-namespace JamesClark32\LaravelWebsocket;
+namespace JamesClark32\LaravelWebsocket\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \JamesClark32\LaravelWebsocket\LaravelWebsocket
  */
-class LaravelWebsocketMessengerFacade extends Facade
+class WebsocketRoutes extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'websocket-messenger';
+        return 'websocket-route-collection';
     }
 }

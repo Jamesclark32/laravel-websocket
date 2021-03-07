@@ -7,14 +7,20 @@ use Illuminate\Support\Collection;
 class WebsocketRouteManager
 {
     protected Collection $websocketRoutes;
+    private static $instance = null;
 
-    public function __construct()
+    private function __construct()
     {
-        $this->websocketRoutes = collect([]);
-        $routeFilePath = base_path('routes/websocket.php');
-        if (file_exists($routeFilePath)) {
-            include($routeFilePath);
+        $this->websocketRoutes = new WebsocketRoutesCollection();
+    }
+
+    public static function getInstance()
+    {
+        if (empty(self::$instance)) {
+            self::$instance = new self;
         }
+
+        return self::$instance;
     }
 
     /**
@@ -31,6 +37,9 @@ class WebsocketRouteManager
      */
     public function add(string $name, $action)
     {
+        $route = new WebsocketRoute();
+        $route->setKey($name);
+        
         $this->websocketRoutes->put($name, [
             'action' => $action,
         ]);
@@ -43,6 +52,6 @@ class WebsocketRouteManager
      */
     public function get(string $name)
     {
-        return $this->websocketRoutes->get($name)['action'];
+        return $this->websocketRoutes->get($name);
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Auth\Authenticatable;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Session;
+use JamesClark32\LaravelWebsocket\Facades\WebsocketRoutes;
 use JamesClark32\LaravelWebsocket\WebsocketRouteResolvers\WebsocketRouteResolver;
 use JamesClark32\Websocket\WebsocketDirectorBase;
 use Ratchet\ConnectionInterface;
@@ -17,18 +18,22 @@ class WebsocketDirector extends WebsocketDirectorBase
     protected array $connections = [];
     protected ?Encrypter $encryptor;
     protected ?WebsocketRouteResolver $websocketRouteResolver;
-    protected ?WebsocketRouteManager $websocketRoutesManager;
 
     public function __construct(?Encrypter $encryptor = null)
     {
-        if (! $encryptor) {
+        if (!$encryptor) {
             $encryptor = app(Encrypter::class);
         }
 
         $this->encryptor = $encryptor;
 
         $this->websocketRouteResolver = new WebsocketRouteResolver();
-        $this->websocketRoutesManager = new WebsocketRouteManager();
+
+        $path = base_path('routes/websocket.php');
+        if (file_exists($path)) {
+            include $path;
+        }
+
     }
 
     public function onOpen(ConnectionInterface $conn)
@@ -70,7 +75,8 @@ class WebsocketDirector extends WebsocketDirectorBase
         $websocketRequest->setRoute($messageBody->route);
         $websocketRequest->setHeaders(collect($conn->httpRequest->getHeaders()));
 
-        $route = $this->websocketRoutesManager->get($websocketRequest->getRoute());
+        $route = WebsocketRoutes::get($websocketRequest->getRoute());
+
         if (!$route) {
             $this->sendToUser($this->connections[$resourceId]['user_id'], 'Route not found '.$messageBody->route);
         }
@@ -127,7 +133,7 @@ class WebsocketDirector extends WebsocketDirectorBase
             $cookiesArr = Header::parse($cookiesRaw)[0]; // Array of cookies
 
             $data = $cookiesArr[$name];
-            if (! $data) {
+            if (!$data) {
                 return null;
             }
             $data = substr($data, 0, -3);//strip trailing %3D TODO do this more cleanly
@@ -169,4 +175,13 @@ class WebsocketDirector extends WebsocketDirectorBase
 //
 //        return count($this->connections);
     }
+
+//    public function loadRoutes()
+//    {
+//        $routeFilePath = base_path('routes/websocket.php');
+//
+//        if (file_exists($routeFilePath)) {
+//            include $routeFilePath;
+//        }
+//    }
 }

@@ -9,9 +9,14 @@ class WebsocketRoutesCollection
     protected Collection $websocketRoutes;
     protected WebsocketRouteFactory $websocketRouteFactory;
 
-    public function __construct(WebsocketRouteFactory $websocketRouteFactory)
+    public function __construct(?WebsocketRouteFactory $websocketRouteFactory = null)
     {
+        if ($websocketRouteFactory === null) {
+            $websocketRouteFactory = new WebsocketRouteFactory();
+        }
         $this->websocketRouteFactory = $websocketRouteFactory;
+
+        $this->websocketRoutes = collect([]);
     }
 
     /*
@@ -26,17 +31,25 @@ class WebsocketRoutesCollection
         return call_user_func_array([$this->websocketRoutes, $name], $arguments);
     }
 
-    public function loadWebsocketRoutes(): Collection
+    /**
+     * @param  string  $name
+     * @param $action
+     */
+    public function add(string $name, $action)
     {
-        $path = base_path('routes/websocket.php');
-        if (file_exists($path)) {
-            $this->websocketRoutes = collect(include($path));
-            $this->transformWebsocketRoutes();
-        } else {
-            $this->websocketRoutes = collect([]);
-        }
+        $route = $this->transformWebsocketRoute($name, ['action' => $action]);
 
-        return $this->websocketRoutes;
+        $this->websocketRoutes->put($name, $route);
+    }
+
+    /**
+     * @param  string  $name
+     *
+     * @return mixed
+     */
+    public function get(string $name)
+    {
+        return $this->websocketRoutes->get($name);
     }
 
     protected function transformWebsocketRoutes(): void
