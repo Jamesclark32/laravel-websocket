@@ -8,7 +8,6 @@ use JamesClark32\Websocket\WebsocketMessenger;
 
 class LaravelWebsocketServiceProvider extends ServiceProvider
 {
-
     /**
      * Register any application services.
      *
@@ -17,7 +16,8 @@ class LaravelWebsocketServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/laravel-websocket.php', 'laravel-websocket',
+            __DIR__.'/../config/laravel-websocket.php',
+            'laravel-websocket',
         );
     }
 
