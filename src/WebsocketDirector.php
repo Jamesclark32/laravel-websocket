@@ -21,7 +21,7 @@ class WebsocketDirector extends WebsocketDirectorBase
 
     public function __construct(?Encrypter $encryptor = null)
     {
-        if (!$encryptor) {
+        if (! $encryptor) {
             $encryptor = app(Encrypter::class);
         }
 
@@ -33,7 +33,6 @@ class WebsocketDirector extends WebsocketDirectorBase
         if (file_exists($path)) {
             include $path;
         }
-
     }
 
     public function onOpen(ConnectionInterface $conn)
@@ -77,7 +76,7 @@ class WebsocketDirector extends WebsocketDirectorBase
 
         $route = WebsocketRoutes::get($websocketRequest->getRoute());
 
-        if (!$route) {
+        if (! $route) {
             $this->sendToUser($this->connections[$resourceId]['user_id'], 'Route not found '.$messageBody->route);
         }
 
@@ -133,7 +132,7 @@ class WebsocketDirector extends WebsocketDirectorBase
             $cookiesArr = Header::parse($cookiesRaw)[0]; // Array of cookies
 
             $data = $cookiesArr[$name];
-            if (!$data) {
+            if (! $data) {
                 return null;
             }
             $data = substr($data, 0, -3);//strip trailing %3D TODO do this more cleanly
