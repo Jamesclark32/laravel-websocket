@@ -165,23 +165,5 @@ class WebsocketDirector extends WebsocketDirectorBase
     protected function fetchResourceIdFromConnection(ConnectionInterface $connection)
     {
         return $connection->resourceId;
-
-        //@TODO: this doesn't seem to work. The above must use some magic methods to resolve.
-//        if (property_exists($connection, 'resourceId')) {
-//            $objectProperties = get_object_vars($connection);
-//
-//            return $objectProperties['resourceId'];
-//        }
-//
-//        return count($this->connections);
     }
-
-//    public function loadRoutes()
-//    {
-//        $routeFilePath = base_path('routes/websocket.php');
-//
-//        if (file_exists($routeFilePath)) {
-//            include $routeFilePath;
-//        }
-//    }
 }
